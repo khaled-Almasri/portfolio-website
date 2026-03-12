@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio eines Informatik-Studenten aus Bremen mit Fokus auf Java und Haskell.">
+    <title>Portfolio | Informatik Bremen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="blob-c">
+        <div class="shape-blob"></div>
+        <div class="shape-blob one"></div>
+    </div>
+
+    <header>
+        <nav class="glass-nav">
+            <div class="logo">CS<span>Portfolio</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Über mich</a></li>
+                <li><a href="#skills">Fähigkeiten</a></li>
+                <li><a href="#projects">Projekte</a></li>
+            </ul>
+            <a href="#contact" class="btn-nav">Kontakt</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-profile-wrapper">
+                    <img src="img/cyber-avatar.png" alt="Khaled Almasri AI Avatar" class="hero-profile-img">
+                    <div class="hero-profile-glow"></div>
+                </div>
+                <p class="greeting">Hi 👋, meine Projekte auf einen Blick</p>
+                <h1>Ich entwickle skalierbare Backend-Systeme und <span class="gradient-text">saubere Architektur</span></h1>
+                <p class="subtitle">Informatik-Student im 4. Semester aus Bremen mit Fokus auf Java & Haskell.</p>
+                <div class="cta-group">
+                    <a href="#projects" class="btn primary-btn">Projekte entdecken</a>
+                    <a href="#skills" class="btn secondary-btn">Code ansehen</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section fade-in">
+            <div class="container">
+                <h2 class="section-title">Über <span class="gradient-text">Mich</span></h2>
+                <div class="glass-card">
+                    <div class="about-grid">
+                        <div class="about-image-wrapper">
+                            <img src="img/profile-hero.jpg" alt="Khaled im Grünen" class="about-profile-img">
+                            <div class="about-profile-glow"></div>
+                        </div>
+                        <div class="about-text">
+                            <p>Als Student der Informatik in Bremen im 4. Semester habe ich bereits ein fundiertes Verständnis von Algorithmen, Datenstrukturen und moderner Softwareentwicklung aufgebaut.</p>
+                            <p>Mein Fokus liegt besonders auf Sprachen wie Java für robuste Unternehmensanwendungen sowie Haskell für komplexe, funktionale Logik. Zudem habe ich praktische Erfahrung in SQL und Datenbanken erworben. Ich arbeite gern analytisch und liebe die Herausforderung, eleganten Code zu schreiben.</p>
+                        </div>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <h3>4.</h3>
+                                <p>Semester BSc</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>100%</h3>
+                                <p>Motivation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="soft-skills-section">
+                        <h3 class="soft-skills-title">♞ Soft Skills & Strategie</h3>
+                        <div class="soft-skills-tags">
+                            <span class="soft-skill-tag">Schach & Taktik</span>
+                            <span class="soft-skill-tag">Analytische Problemlösung</span>
+                            <span class="soft-skill-tag">Hackathons & Prototyping</span>
+                            <span class="soft-skill-tag">Agiles Teamplay</span>
+                            <span class="soft-skill-tag">Fitness & Ausdauer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section fade-in">
+            <div class="container">
+                <h2 class="section-title">Meine <span class="gradient-text">Fähigkeiten</span></h2>
+                <div class="skills-grid">
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon">☕</div>
+                        <h3>Java</h3>
+                        <p>Tiefes Verständnis für Objektorientierte Programmierung (OOP), Datenstrukturen und Entwurfsmuster.</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon">λ</div>
+                        <h3>Haskell</h3>
+                        <p>Funktionale Programmierung, Lazy Evaluation, Rekursion und stark typisierte Systeme.</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon">🐙</div>
+                        <h3>Git & GitHub</h3>
+                        <p>Versionskontrolle, Team-Kollaboration via Branches / Pull Requests und Repository Management.</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon">🗄️</div>
+                        <h3>SQL</h3>
+                        <p>Datenbankdesign, komplexe Abfragen, Joins und Optimierung relationaler Datenstrukturen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section fade-in">
+            <div class="container">
+                <h2 class="section-title">Meine <span class="gradient-text">Projekte</span></h2>
+                <div class="projects-grid">
+                    <div class="project-card glass-card">
+                        <div class="project-content">
+                            <h3>Backend Service (Java)</h3>
+                            <p>Ein Beispielprojekt zur Demonstration architektonischer Muster und solider Prinzipien in Java.</p>
+                            <div class="tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">OOP</span>
+                            </div>
+                            <a href="https://github.com/Khaled-Almasri" target="_blank" class="project-link">Zu GitHub ➔</a>
+                        </div>
+                    </div>
+                    <div class="project-card glass-card">
+                        <div class="project-content">
+                            <h3>Haskell Algorithmen</h3>
+                            <p>Implementierung effizienter Baumstrukturen und Such-Algorithmen im funktionalen Paradigma.</p>
+                            <div class="tags">
+                                <span class="tag">Haskell</span>
+                                <span class="tag">Functional</span>
+                            </div>
+                            <a href="https://github.com/Khaled-Almasri" target="_blank" class="project-link">Zu GitHub ➔</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section fade-in">
+            <div class="container glass-card contact-card">
+                <h2>Lass uns <span class="gradient-text">zusammenarbeiten!</span></h2>
+                <p>Ich bin immer offen für interessante Projekte, Erfahrungsaustausch oder Werkstudenten-Positionen.</p>
+                <div class="contact-info">
+                    <a href="mailto:khaled11.masri12@gmail.com" class="btn primary-btn">✉ E-Mail senden</a>
+                    <a href="tel:+4917676496689" class="btn secondary-btn">📞 +49 17676496689</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bremen. Gestaltet für einen Informatik-Studenten.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
