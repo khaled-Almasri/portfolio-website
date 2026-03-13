@@ -21,57 +21,23 @@ html {
 }
 
 body {
-    background-color: var(--bg-dark);
-    background-image: radial-gradient(circle at 50% 0%, rgba(255, 8, 68, 0.08) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 80%, rgba(255, 94, 98, 0.05) 0%, transparent 40%);
+    background-color: #050508; /* Pure dark cyber background */
     color: var(--text-pure);
     font-family: 'Outfit', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* Background Effects */
-.blob-c {
+/* 3D Interactive Particle Background (Canvas) */
+.particle-background {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
     top: 0;
     left: 0;
-    filter: blur(120px);
-}
-
-.shape-blob {
-    background: linear-gradient(135deg, rgba(255, 8, 68, 0.25) 0%, rgba(255, 177, 153, 0.25) 100%);
-    height: 500px;
-    width: 500px;
-    border-radius: 50%;
-    position: absolute;
-    top: -150px;
-    left: -150px;
-    animation: move1 20s ease-in-out infinite alternate;
-}
-
-.shape-blob.one {
-    background: linear-gradient(135deg, rgba(255, 94, 98, 0.15) 0%, rgba(255, 153, 51, 0.15) 100%);
-    height: 600px;
-    width: 600px;
-    bottom: -200px;
-    right: -150px;
-    top: auto;
-    left: auto;
-    animation: move2 25s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes move1 {
-    0% { transform: translateY(0) scale(1); }
-    100% { transform: translateY(100px) scale(1.1); }
-}
-
-@keyframes move2 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-100px, -100px) scale(1.2); }
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+    pointer-events: none; /* Let clicks pass through to the portfolio */
+    background-color: #030305; /* Deep cyber dark */
 }
 
 /* Typography elements */
@@ -194,7 +160,6 @@ p {
     padding: 6rem 2rem;
 }
 
-/* Navbar */
 .glass-nav {
     display: flex;
     justify-content: space-between;
@@ -203,10 +168,10 @@ p {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 9999;
     background: transparent;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
@@ -457,47 +422,254 @@ p {
     box-shadow: 0 4px 15px rgba(255, 8, 68, 0.2);
 }
 
-/* Skills */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+/* Skills Dial (Compass Layout) */
+.skills-dial-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 800px;
+    margin: 4rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.skill-card {
+/* Background Rings & Beams (SVG) */
+.dial-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    animation: slowSpin 60s linear infinite;
+}
+
+.dial-ring {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.05);
+    stroke-width: 2px;
+}
+
+.inner-ring {
+    stroke-dasharray: 4 8;
+}
+
+.outer-ring {
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 1px;
+}
+
+.dial-beam {
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.active-beam {
+    stroke: #ffffff;
+    stroke-width: 3px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    animation: pulseBeam 2s ease-in-out infinite alternate;
+}
+
+/* Center Avatar Core */
+.dial-core {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+}
+
+.dial-core:hover {
+    transform: scale(1.05);
+}
+
+.core-glow {
+    position: absolute;
+    top: -20px; left: -20px; right: -20px; bottom: -20px;
+    background: radial-gradient(circle, rgba(255, 8, 68, 0.6) 0%, transparent 60%);
+    filter: blur(20px);
+    z-index: 1;
+    animation: corePulse 4s ease-in-out infinite alternate;
+}
+
+.dial-core img {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 3;
+    border: 3px solid #1a1a24;
+    /* Soften the image slightly to match the dark aesthetic without harsh filters */
+    filter: contrast(110%) brightness(0.95);
+}
+
+.core-ring {
+    position: absolute;
+    top: 5px; left: 5px; right: 5px; bottom: 5px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 8, 68, 0.8);
+    z-index: 6;
+    box-shadow: inset 0 0 15px rgba(255, 8, 68, 0.5), 0 0 15px rgba(255, 8, 68, 0.5);
+    animation: slowSpin 10s linear infinite reverse;
+    border-top-color: #00f2fe; /* cyan accent to the ring */
+    border-bottom-color: transparent;
+}
+
+/* Orbiting Nodes */
+.dial-node {
+    position: absolute;
+    z-index: 20;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
-.skill-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.dial-node:hover {
+    transform: scale(1.1);
+    z-index: 30;
 }
 
-.skill-card:hover .skill-icon {
-    transform: scale(1.15) translateY(-5px);
-}
-
-.skill-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 0.8rem;
+.node-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(15, 15, 22, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
     color: var(--text-pure);
     position: relative;
-    display: inline-block;
+    backdrop-filter: blur(5px);
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
 }
 
-.skill-card h3::after {
-    content: '';
-    position: absolute;
-    width: 0; height: 2px;
-    bottom: -4px; left: 50%;
+.dial-node:hover .node-icon {
+    border-color: rgba(255,255,255,0.4);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.node-info {
+    background: rgba(10, 10, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.node-info h3 {
+    font-size: 1.2rem;
+    color: var(--text-pure);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.node-info p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+/* Positioning the 4 Nodes */
+/* Top: Java */
+.node-top {
+    top: 50px;
+    left: 50%;
     transform: translateX(-50%);
-    background: var(--primary-gradient);
-    transition: width 0.3s ease;
+}
+.node-top:hover { transform: translateX(-50%) scale(1.1); }
+.java-node .node-icon { box-shadow: inset 0 0 15px rgba(205, 127, 50, 0.3), 0 0 20px rgba(205, 127, 50, 0.2); }
+
+/* Right: Haskell */
+.node-right {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+.node-right:hover { transform: translateY(-50%) scale(1.1); }
+.haskell-node .node-icon { border-color: #ffffff; box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.4); }
+
+/* Bottom: SQL */
+.node-bottom {
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.node-bottom:hover { transform: translateX(-50%) scale(1.1); }
+.sql-node .node-icon { box-shadow: inset 0 0 15px rgba(0, 191, 255, 0.3), 0 0 20px rgba(0, 191, 255, 0.2); }
+
+/* Left: Git */
+.node-left {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.node-left:hover { transform: translateY(-50%) scale(1.1); }
+.git-node .node-icon { box-shadow: inset 0 0 15px rgba(138, 43, 226, 0.3), 0 0 20px rgba(138, 43, 226, 0.2); }
+
+/* Animations */
+@keyframes slowSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.skill-card:hover h3::after {
-    width: 50%;
+@keyframes corePulse {
+    0% { opacity: 0.5; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes pulseBeam {
+    0% { opacity: 0.6; filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); }
+    100% { opacity: 1; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)); }
+}
+
+/* Mobile Adjustments for Dial */
+@media (max-width: 900px) {
+    .skills-dial-container {
+        height: auto;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+    
+    .dial-svg {
+        display: none; /* Hide background rings/lines on mobile */
+    }
+    
+    .dial-node {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .dial-node:hover {
+        transform: translateY(-5px) !important;
+    }
+    
+    .dial-core {
+        margin-bottom: 2rem;
+    }
 }
 
 /* Projects */

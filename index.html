@@ -6,13 +6,8 @@
     <meta name="description" content="Portfolio eines Informatik-Studenten aus Bremen mit Fokus auf Java und Haskell.">
     <title>Portfolio | Informatik Bremen</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="blob-c">
-        <div class="shape-blob"></div>
-        <div class="shape-blob one"></div>
-    </div>
+    <!-- 3D Interactive Particle Background (Canvas) -->
+    <canvas id="bg-canvas" class="particle-background"></canvas>
 
     <header>
         <nav class="glass-nav">
@@ -35,8 +30,8 @@
                     <div class="hero-profile-glow"></div>
                 </div>
                 <p class="greeting">Hi 👋, meine Projekte auf einen Blick</p>
-                <h1>Ich entwickle skalierbare Backend-Systeme und <span class="gradient-text">saubere Architektur</span></h1>
-                <p class="subtitle">Informatik-Student im 4. Semester aus Bremen mit Fokus auf Java & Haskell.</p>
+                <h1>Konzepiere und entwickle robuste <span class="gradient-text">Softwarelösungen.</span></h1>
+                <p class="subtitle">Ich bin leidenschaftlicher Informatik-Student aus Bremen (4. Semester) mit einem starken Fokus auf Backend-Entwicklung, saubere Software-Architektur und die Eleganz funktionaler Programmierung.</p>
                 <div class="cta-group">
                     <a href="#projects" class="btn primary-btn">Projekte entdecken</a>
                     <a href="#skills" class="btn secondary-btn">Code ansehen</a>
@@ -86,26 +81,62 @@
         <section id="skills" class="skills-section fade-in">
             <div class="container">
                 <h2 class="section-title">Meine <span class="gradient-text">Fähigkeiten</span></h2>
-                <div class="skills-grid">
-                    <div class="skill-card glass-card">
-                        <div class="skill-icon">☕</div>
-                        <h3>Java</h3>
-                        <p>Tiefes Verständnis für Objektorientierte Programmierung (OOP), Datenstrukturen und Entwurfsmuster.</p>
+                
+                <div class="skills-dial-container">
+                    <!-- Futuristic Background Rings (SVG) -->
+                    <svg class="dial-svg" viewBox="0 0 800 800">
+                        <circle cx="400" cy="400" r="280" class="dial-ring inner-ring" />
+                        <circle cx="400" cy="400" r="380" class="dial-ring outer-ring" />
+                        
+                        <!-- Connection Beams (Center to Nodes) -->
+                        <line x1="400" y1="400" x2="400" y2="20" class="dial-beam beam-java" />
+                        <line x1="400" y1="400" x2="780" y2="400" class="dial-beam beam-haskell active-beam" />
+                        <line x1="400" y1="400" x2="400" y2="780" class="dial-beam beam-sql" />
+                        <line x1="400" y1="400" x2="20" y2="400" class="dial-beam beam-git" />
+                    </svg>
+
+                    <!-- Center Profile Core -->
+                    <div class="dial-core">
+                        <div class="core-glow"></div>
+                        <img src="img/profile-clean.png" alt="Profile Center" />
+                        <div class="core-ring"></div>
                     </div>
-                    <div class="skill-card glass-card">
-                        <div class="skill-icon">λ</div>
-                        <h3>Haskell</h3>
-                        <p>Funktionale Programmierung, Lazy Evaluation, Rekursion und stark typisierte Systeme.</p>
+
+                    <!-- 4 Orbiting Skill Nodes -->
+                    <!-- Top: Java -->
+                    <div class="dial-node node-top java-node">
+                        <div class="node-icon">☕</div>
+                        <div class="node-info">
+                            <h3>Java</h3>
+                            <p>Objektorientierung & Entwurfsmuster für skalierbare Systeme.</p>
+                        </div>
                     </div>
-                    <div class="skill-card glass-card">
-                        <div class="skill-icon">🐙</div>
-                        <h3>Git & GitHub</h3>
-                        <p>Versionskontrolle, Team-Kollaboration via Branches / Pull Requests und Repository Management.</p>
+
+                    <!-- Right: Haskell -->
+                    <div class="dial-node node-right haskell-node">
+                        <div class="node-icon" style="font-family: serif; font-style: italic;">λ</div>
+                        <div class="node-info">
+                            <h3>Haskell</h3>
+                            <p>Deklarative Logik, Rekursion und typsichere Algorithmen.</p>
+                        </div>
                     </div>
-                    <div class="skill-card glass-card">
-                        <div class="skill-icon">🗄️</div>
-                        <h3>SQL</h3>
-                        <p>Datenbankdesign, komplexe Abfragen, Joins und Optimierung relationaler Datenstrukturen.</p>
+
+                    <!-- Bottom: SQL -->
+                    <div class="dial-node node-bottom sql-node">
+                        <div class="node-icon">🗄️</div>
+                        <div class="node-info">
+                            <h3>SQL</h3>
+                            <p>Optimierung komplexer Abfragen und relationales Datenbankdesign.</p>
+                        </div>
+                    </div>
+
+                    <!-- Left: Git -->
+                    <div class="dial-node node-left git-node">
+                        <div class="node-icon">🐙</div>
+                        <div class="node-info">
+                            <h3>Git</h3>
+                            <p>Effiziente Versionskontrolle und kollaboratives Repository-Management.</p>
+                        </div>
                     </div>
                 </div>
             </div>
