@@ -676,16 +676,19 @@ p {
 .feature-projects {
     display: flex;
     flex-direction: column;
-    gap: 6rem;
+    gap: 4rem; /* Reduced gap between projects */
     margin-top: 3rem;
+    max-width: 1000px; /* Restrict max width of the whole project section */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .project-feature {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem; /* Reduced gap between image and text */
     position: relative;
-    padding: 2rem;
+    padding: 1.5rem; /* Reduced padding inside the card */
     border-radius: 20px;
     background: rgba(15, 15, 22, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.05);
