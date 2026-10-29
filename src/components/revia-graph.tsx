@@ -1,22 +1,22 @@
-// Decorative semantic graph for the Revia card.
+// Decorative sketch of the ReVia knowledge graph: user input → exercises → plan.
 const nodes = [
-  { id: "main", x: 60, y: 110, label: "main" },
-  { id: "read", x: 170, y: 50, label: "read" },
-  { id: "parse", x: 170, y: 170, label: "parse" },
-  { id: "check", x: 290, y: 110, label: "check" },
-  { id: "io", x: 290, y: 30, label: "effect: io" },
-  { id: "err", x: 290, y: 190, label: "error" },
-  { id: "emit", x: 400, y: 110, label: "contract" },
+  { id: "profile", x: 60, y: 110, label: "Profil" },
+  { id: "region", x: 170, y: 50, label: "Körperregion" },
+  { id: "level", x: 170, y: 170, label: "Trainingslevel" },
+  { id: "exercise", x: 290, y: 110, label: "Übung" },
+  { id: "effect", x: 290, y: 30, label: "Trainingseffekt" },
+  { id: "contra", x: 290, y: 190, label: "Kontraindikation" },
+  { id: "plan", x: 400, y: 110, label: "Trainingsplan" },
 ];
 
 const edges: [string, string][] = [
-  ["main", "read"],
-  ["main", "parse"],
-  ["read", "check"],
-  ["parse", "check"],
-  ["read", "io"],
-  ["parse", "err"],
-  ["check", "emit"],
+  ["profile", "region"],
+  ["profile", "level"],
+  ["region", "exercise"],
+  ["level", "exercise"],
+  ["exercise", "effect"],
+  ["exercise", "contra"],
+  ["exercise", "plan"],
 ];
 
 const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
@@ -26,7 +26,7 @@ export function ReviaGraph() {
     <svg
       viewBox="0 0 460 220"
       role="img"
-      aria-label="Schematischer semantischer Graph"
+      aria-label="Schematischer Ausschnitt des ReVia-Knowledge-Graphs"
       className="mx-auto h-auto w-full max-w-md"
     >
       {edges.map(([a, b]) => (
@@ -41,7 +41,7 @@ export function ReviaGraph() {
         />
       ))}
       {nodes.map((n) => {
-        const primary = n.id === "main" || n.id === "emit";
+        const primary = n.id === "profile" || n.id === "plan";
         return (
           <g key={n.id}>
             <circle

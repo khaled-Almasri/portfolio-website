@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://al-fa-abmx.vercel.app"),
   title: "Khaled Almasri – Informatik-Student & Backend-Entwickler",
   description:
-    "Portfolio von Khaled Almasri, Informatik-Student an der Universität Bremen: Java-Backend, funktionale Programmierung in Haskell und das Open-Source-Projekt Revia.",
+    "Portfolio von Khaled Almasri, Informatik-Student an der Universität Bremen: Java-Backend, funktionale Programmierung in Haskell und die Reha-App ReVia aus dem Bachelorprojekt.",
   openGraph: {
     title: "Khaled Almasri – Portfolio",
     description:
-      "Informatik-Student in Bremen. Java-Backend, Haskell und Revia.",
+      "Informatik-Student in Bremen. Java-Backend, Haskell und Flutter.",
     locale: "de_DE",
     type: "website",
   },

@@ -101,11 +101,12 @@ function Projects() {
               </li>
             ))}
           </ul>
-          <pre className="mt-5 overflow-x-auto rounded-lg bg-fg px-4 py-3 font-mono text-xs leading-relaxed text-bg">
-            <span className="opacity-50">$ </span>npm run re -- check examples/hello.re
-            {"\n"}
-            <span className="opacity-50">$ </span>npm run re -- run examples/hello.re
-          </pre>
+          <div className="mt-5 rounded-lg border-l-2 border-accent bg-accent-soft/60 px-4 py-3">
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">
+              Meine Rolle
+            </p>
+            <p className="mt-1 text-sm leading-relaxed">{featured.role}</p>
+          </div>
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap gap-2">
               {featured.tags.map((t) => (
@@ -118,6 +119,9 @@ function Projects() {
                   {l.label}
                 </ArrowLink>
               ))}
+              {featured.note && (
+                <span className="text-sm text-muted">{featured.note}</span>
+              )}
             </div>
           </div>
         </div>

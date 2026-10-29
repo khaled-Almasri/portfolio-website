@@ -17,7 +17,7 @@ export const profile = {
 
 export const about = [
   "Im Studium habe ich ein solides Fundament in Algorithmen, Datenstrukturen und moderner Softwareentwicklung aufgebaut. Mich reizt vor allem die Frage, wie man Systeme so strukturiert, dass sie auch mit wachsender Komplexität verständlich bleiben.",
-  "Java nutze ich für robuste, objektorientierte Anwendungen, Haskell für typsichere, deklarative Logik. Dazu kommen praktische Erfahrungen mit SQL und relationalen Datenbanken. Aktuell arbeite ich an Revia mit, einer graphbasierten Sprache für Software, die von KI-Agenten geschrieben und von Menschen geprüft wird.",
+  "Java nutze ich für robuste, objektorientierte Anwendungen, Haskell für typsichere, deklarative Logik. Dazu kommen praktische Erfahrungen mit SQL und relationalen Datenbanken. Im Bachelorprojekt ReVia habe ich im Team die Flutter-Oberfläche einer Reha-App mitentwickelt, die ihre Inhalte aus einem Knowledge Graph bezieht.",
 ];
 
 export const interests = [
@@ -30,7 +30,7 @@ export const interests = [
 export const skills = [
   {
     title: "Sprachen",
-    items: ["Java", "Haskell", "SQL"],
+    items: ["Java", "Haskell", "Dart / Flutter", "SQL", "SPARQL"],
   },
   {
     title: "Konzepte",
@@ -39,6 +39,7 @@ export const skills = [
       "Funktionale Programmierung",
       "Algorithmen & Datenstrukturen",
       "Relationales Datenbankdesign",
+      "Knowledge Graphs",
     ],
   },
   {
@@ -56,17 +57,19 @@ export type Project = {
 };
 
 export const featured = {
-  title: "Revia",
-  kicker: "Aktuelles Projekt · Open Source",
+  title: "ReVia – Reha-App",
+  kicker: "Bachelorprojekt · Teamprojekt · SoSe 2026",
   description:
-    "Eine graphbasierte Programmiersprache für KI-native Entwicklung: Agenten schreiben Programme, Menschen prüfen und steuern sie über verifizierbare semantische Graphen. Fähigkeiten, Effekte, Fehler und Ressourcen sind explizit, Serialisierung und Graph-Identität deterministisch.",
+    "Prototyp einer App, die Patient:innen bei der selbstständigen Rehabilitation zwischen Physiotherapie-Terminen unterstützt. Ein Knowledge Graph verknüpft Übungen, Körperregionen, Kontraindikationen und Trainingseffekte – daraus entstehen personalisierte Trainingspläne, Fortschritts- und Schmerzverläufe sowie ein Profil mit interaktiver Körperkarte.",
+  role: "Architektur und Implementierung der Flutter-Oberfläche im UI-Team, Qualitätssicherung mit realen Graph- und Isar-Daten sowie Analyse und Behebung von Integrationsfehlern zwischen App, API und Wissensbasis.",
   highlights: [
-    "Referenz-Toolchain in JavaScript",
-    "Nativer Translator & VM in Rust",
-    "Konformitäts- und Byte-genaue Golden-Tests",
+    "Mobile App mit Flutter & Dart",
+    "OWL-Ontologie, abgefragt per SPARQL (Apache Jena Fuseki)",
+    "Lokale Nutzerdaten mit Isar",
   ],
-  tags: ["Rust", "JavaScript", "Sprachdesign", "AI Agents", "MPL-2.0"],
-  links: [{ label: "Repository", href: "https://github.com/regrevia/Revia" }],
+  tags: ["Flutter", "Dart", "Knowledge Graph", "SPARQL", "Isar", "Teamarbeit"],
+  note: "Repository privat (Universität Bremen)",
+  links: [] as { label: string; href: string }[],
 };
 
 export const projects: Project[] = [
