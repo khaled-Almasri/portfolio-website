@@ -152,6 +152,7 @@ function Projects() {
                     {l.label}
                   </ArrowLink>
                 ))}
+                {p.note && <span className="text-sm text-muted">{p.note}</span>}
               </div>
             </div>
           </article>

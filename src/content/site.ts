@@ -17,7 +17,7 @@ export const profile = {
 
 export const about = [
   "Im Studium habe ich ein solides Fundament in Algorithmen, Datenstrukturen und moderner Softwareentwicklung aufgebaut. Mich reizt vor allem die Frage, wie man Systeme so strukturiert, dass sie auch mit wachsender Komplexität verständlich bleiben.",
-  "Java nutze ich für robuste, objektorientierte Anwendungen, Haskell für typsichere, deklarative Logik. Dazu kommen praktische Erfahrungen mit SQL und relationalen Datenbanken. Im Bachelorprojekt ReVia habe ich im Team die Flutter-Oberfläche einer Reha-App mitentwickelt, die ihre Inhalte aus einem Knowledge Graph bezieht.",
+  "Java nutze ich für robuste, objektorientierte Anwendungen, Haskell für typsichere, deklarative Logik. Dazu kommen praktische Erfahrungen mit SQL und relationalen Datenbanken. Im Bachelorprojekt ReVia habe ich im Team die Flutter-Oberfläche einer Reha-App mitentwickelt, die ihre Inhalte aus einem Knowledge Graph bezieht. In meiner Bachelorarbeit bringe ich einem simulierten humanoiden Roboter bei, Reha-Übungen stabil auszuführen.",
 ];
 
 export const interests = [
@@ -30,7 +30,7 @@ export const interests = [
 export const skills = [
   {
     title: "Sprachen",
-    items: ["Java", "Haskell", "Dart / Flutter", "SQL", "SPARQL"],
+    items: ["Java", "Haskell", "C#", "Dart / Flutter", "SQL", "SPARQL"],
   },
   {
     title: "Konzepte",
@@ -44,7 +44,7 @@ export const skills = [
   },
   {
     title: "Werkzeuge",
-    items: ["Git & GitHub", "GitLab CI", "Vercel"],
+    items: ["Git & GitHub", "Unity", "GitLab CI", "Vercel"],
   },
 ];
 
@@ -54,6 +54,7 @@ export type Project = {
   description: string;
   tags: string[];
   links: { label: string; href: string }[];
+  note?: string;
 };
 
 export const featured = {
@@ -74,6 +75,15 @@ export const featured = {
 
 export const projects: Project[] = [
   {
+    title: "Robot-Simulation – Booster K1",
+    kicker: "Bachelorarbeit · in Arbeit",
+    description:
+      "Simulation des humanoiden Roboters Booster K1 in Unity 6, der Sport- und Reha-Übungen wie Baum, Stuhl oder Beinheben ausführt. Eine Gleichgewichtsregelung hält den Schwerpunkt über dem Standfuß, alle Gelenke werden über Antriebe auf Soll-Winkel geregelt. Die Übungen stammen aus einer JSON-LD-Datei mit Bezug zur ReVia-Ontologie; ein automatischer Experiment-Runner prüft Zuverlässigkeit, Toleranz und Kippgrenzen mit und ohne Regelung.",
+    tags: ["C#", "Unity", "Robotik", "Regelung", "JSON-LD"],
+    links: [],
+    note: "Repository privat",
+  },
+  {
     title: "AlFa – Asset Management",
     kicker: "Java Backend",
     description:
@@ -82,7 +92,7 @@ export const projects: Project[] = [
     links: [{ label: "Code", href: "https://github.com/khaled-Almasri/AlFa" }],
   },
   {
-    title: "Roboter-Simulation",
+    title: "Java-Robot",
     kicker: "Java · v1 → v2",
     description:
       "Objektorientierte Simulation eines autonomen Roboters mit Ultraschall-, Infrarot- und Distanzsensoren, Batteriemanagement und zentraler ControlUnit. Version 2 ergänzt dynamische Collections, die Schnittstelle DataSample und eine realistischere Verbrauchslogik.",
